@@ -1,0 +1,23 @@
+type InitArgs = record {
+  name: text;
+  symbol: text;
+  initial_supply: nat64;
+};
+
+type Holder = record {
+principal: principal;
+balance nat64;
+};
+
+
+service : {
+  init: (InitArgs) -> ();
+  name: () -> (text) query;
+  symbol: () -> (text) query;
+  total_supply: () -> (nat64) query;
+  owner: () -> (principal) query;
+  balance_of: (principal) -> (nat64) query;
+  holders: () -> (vec Holder) query;
+  transfer: (principal, nat64) -> (variant { Ok: bool; Err: text });
+  mint: (principal, nat64) -> (variant { Ok: bool; Err: text });
+}

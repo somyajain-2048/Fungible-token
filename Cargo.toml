@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "src/fungible-token-backend"
+]
+resolver = "2"

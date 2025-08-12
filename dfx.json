@@ -1,0 +1,33 @@
+{
+  "canisters": {
+    "fungible-token-backend": {
+      "candid": "src/fungible-token-backend/fungible-token-backend.did",
+      "package": "fungible-token-backend",
+      "type": "rust",
+      "build": "cargo build --target wasm32-unknown-unknown --release -p fungible-token-backend",
+"init": {
+  "func": "init",
+  "args": [
+    {
+      "name": "FungibleToken",
+      "symbol": "FTK",
+      "initial_supply": 1000000
+    }
+  ]
+}
+
+    },
+    "fungible-token-frontend": {
+      "type": "assets",
+      "source": ["frontend/dist"]
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
